@@ -1,0 +1,144 @@
+\documentclass{NSF}
+
+%\graphicspath{{figures/}}
+
+%\fontfamily{ppl}\selectfont
+%\setmainfont{Arial}
+%\usepackage{fontspec}
+%\usepackage{palatino}
+\fontfamily{cmss}\selectfont
+\usepackage[numbib]{tocbibind}
+\usepackage[T1]{fontenc}
+\usepackage{cmbright}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{pdfpages}
+
+\newcommand{\bo}[1]{\textcolor{blue}{Bo: #1}}
+\newcommand{\Xu}[1]{\textcolor{blue}{Xu: #1}}
+
+\begin{document}
+
+\setcounter{section}{1}
+
+\noindent \textbf{Thrust AI-2: Multi-Agent Collaboration. (Xiaoming Huo)}
+
+\textbf{This section should be around 2 pages long.}
+
+
+A domain task may involve multiple agents, either within or across organizational boundaries (e.g.,when detecting ``cyber-pandemics”).
+We propose to develop a multi-agent collaboration framework,enabled by research in the following aspects.
+\begin{enumerate}
+\item Formal modeling of multi-agent networks: 
+We will develop new concepts and models to assess the aggregate intelligence and capability of a network of agents performing a domain task.
+The models will capture both per-agent characteristics (e.g., knowledge and capability) as well as inter-agent relationships, such as trust and degree of cooperation.
+New theories will then be developed to quantify the network-wide intelligence and capability, based on derived properties such as scale, agreement/polarization~\cite{wang22coevolution}, and contagion (e.g., of misinformation) status.
+
+\item 
+Distributed learning and reasoning: 
+We will study the effectiveness of multi-agent learning and reasoning under a variety of factors, such as the type/amountof knowledge shared, adversarial disturbances~\cite{SilvestreRosaHespanhaSilvestreJun14}, and choice of reward functions and action quality assessment methods~\cite{radha_arel}.
+\textcolor{red}{xxx- Need contents from Radha on this topic...}
+
+\item 
+Multi-agent network as moving target:
+To mitigate adversarial disturbances, we will turn a multi-agent network into an intelligent moving target, by dynamically changing its organization/configuration, driven by domain knowledge and real-time situation-awareness, to avoid sophisticated adversarial analysis, evasion, and influence.
+\textcolor{red}{xxx- Need more contents on this topic...}
+
+\item Reinforcement Learning: \textcolor{red}{xxx- Add some overview statement here}
+\end{enumerate}
+
+
+
+\noindent \textbf{1. Formal Modeling of Multi-agent Networks}
+
+We will develop new concepts and models to assess the aggregate intelligence and capability of a network of security agents performing a domain task.
+The models will capture both per-agent characteristics (e.g., knowledge and capability) as well as inter-agent relationships, such as trust and degree of cooperation.
+New theories will then be developed to quantify the network-wide intelligence and capability, based on derived properties such as scale, agreement/polarization, and contagion (e.g., of misinformation) status.
+
+\noindent {\bf Network Models.}
+We consider a distributed collection of AI agents for monitoring and detecting security threats.
+The model will include node features including agent-level characteristics such as agent-specific knowledge, specialties (sensing, actuation, and decision making capabilities), and tasks.
+Some of the node features are probabilistic in nature, for example, the chance or belief of certain security attacks or abnormal behaviors.
+We will include features on edges or hyper-edges capturing properties of interactions and relationships among agents such as trust, information exchange or aggregation patterns.
+
+\noindent {\bf Information Exchange and Contagion.}
+Both node features and edge features are dynamically evolving.
+This will enable the distributed agents to share their individual discoveries such that a `pandemic' attack can be detected quickly, and agents that have not yet experienced attacks can be well prepared.
+We propose co-evolving models where node features especially the knowledge of current vulnerabilities and potential attacks is exchanged.
+The update pattern and frequency take considerations such as whether two agents belong to the same organization and whether their tasks are compatible/overlapping.
+
+\noindent {\bf Consensus and Polarization.}
+Our goal is to enable agents sharing their knowledge and new discoveries with other agents in a network using a proper contagion model such that all agents in the network can provide timely and intelligent responses to emerging security concerns.
+Towards this objective, we will develop new theory on understanding the global network behaviors arising from local interactions among autonomous agents.
+We will develop a suite of tools and protocols for how and when agents communicate with one another with their new discoveries/knowledge models, such that new threats that are independently detected and confirmed by multiple agents in the network can be quickly recognized and acted upon in a timely manner.
+We plan to derive conditions on network-wide convergence (consensus) or partition (polarization), with dependency on network topology and interaction/contagion models.
+The work builds upon prior literature on contagion models and network consensus~\cite{Ghasemiesfeh:2013:CCW,gao2017engineering,ebrahimi17complex,gao19volatility,gao16general,wang22coevolution}, but expects to embrace much more complex agent behaviors and interaction patterns.
+In particular, we need to balance between a number of considerations:
+1) fast convergence and spreading of new intelligence through the network;
+2) having the capability of controlling or pruning misinformation;
+3) embracing locality where nodes closer in the network should share more similar views.
+
+Classical theory on contagion models show that simple gossip models (e.g., new information is shared with all neighbors) can quickly spread information to the entire network but misinformation through any single node can also quickly spread to the entire network.
+Alternatively, we can introduce more conservative contagion models.
+For example, adoption requires separate confirmations from neighbors -- e.g., in $k$-complex contagion model~\cite{Ghasemiesfeh:2013:CCW,ebrahimi17complex,gao16general}, a node adopts the new information only when at least $k$ neighbors have adopted.
+We can also take a variant of the `naming game' model~\cite{gao2017engineering} (which explains the emergence of shared conventions), to allow the emergence of suspected attacks that are most persistent in the network---each node keeps a list of their current security profiles; at each round a node takes one in the list and exchanges with a neighbor; security profiles that are confirmed by both nodes will be given higher belief levels in the later rounds.
+We will also consider co-evolving models, where the edge features are updated dynamically as well.
+For example, if two nodes consistently show differences in their security profiles and tasks, the edge weight should be lowered such that information exchange is less frequent.
+In our recent work~\cite{wang22coevolution} we have studied the network co-evolving behavior where network will converge to either a homogeneous consensus one or a polarized one.
+We would need a more refined analysis that tie the initial states, the contagion models and the final converged status.
+In summary this theory will provide a rigorous foundation for quantifying the collective intelligence and capability of the multi-agent network.
+
+
+\noindent \textbf{2. Distributed learning and reasoning}
+
+\textcolor{red}{xxx- Need contents from Radha on this topic...}
+
+
+\noindent \textbf{3. Multi-agent network as moving target}
+
+\textcolor{red}{xxx- Need contents on this topic...}
+
+
+
+\noindent \textbf{4. Reinforcement Learning}
+
+\noindent {\bf Deep Reinforcement Learning.}
+Our proposal falls within the larger study of deep reinforcement learning, which aims to learn RL agents with policies via deep neural networks.
+Reinforcement learning (RL) is the branch of machine learning that addresses automated decision making and control.
+While most machine learning methods deal with problems of prediction and recognition, RL specifically addresses decision making under uncertainty to maximize a utility function.
+This highly general formulation encompasses a broad range of potential AI applications in the real world: from controlling autonomous vehicles and robots to regulating power grids to managing inventory levels in warehouses to optimizing medical treatment trials.
+The real world is full of complex decision making problems that require handling rich inputs and making rational decisions in stochastic systems under uncertainty.
+
+Deep RL has been successfully applied to learning complex control policies, including video games~\cite{mnih2015human,openai2018dota,arulkumaran2017deep}, classical games like Go~\cite{silver2017alphago}, simulated~\cite{schulman2015trust,lillicrap2015continuous} and real~\cite{levine2016end,kalashnikov2018qt,openai2019solving,nagabandi2019deep} robot control.
+
+This paradigm has also been extended to related setups in learning from demonstrations, such as imitation learning~\cite{ho2016generative,finn2016connection,kuefler2017imitating,fu2017learning}, off-line reinforcement learning~\cite{fujimoto2019off,kumar2019stabilizing,kumar2020conservative,kidambi2020morel,levine2020offline,yu2020mopo}, and observation-only demonstrations~\cite{liu2017imitation,torabi2018generative}.
+
+\noindent {\bf Unsupervised Reinforcement Learning.}
+More recently, there has been a body of research in \textit{unsupervised} reinforcement learning where agents learn from reward-free interactions by optimizing for self-supervised intrinsic reward proxies for exploration and skill discovery~\cite{pathakICMl17curiosity,pathak2019self,eysenbach2018diversity,hansen2019fast, sharma2019dynamics,liu2021aps,liu2021behavior,yarats2021reinforcement}.
+While currently largely contained to pre-training for standard RL environments (games, simulated robotic control), unsupervised RL has a natural fit with security and program verification: indeed, an unsupervised RL agent is effectively tasked with visiting all possible states a program or machine can end up in, i.e. achieve maximal coverage, which (with further investigation) could lead to a new generation of debugging and security tools.
+
+\noindent {\bf Multi-Agent Reinforcement Learning.}
+While the most standard reinforcement lerning setting considers one agent maximizing its reward, many practical applications involve multiple agents that need to collaborate or might need to compete.
+Methods like Multi-Agent Actor-Critic~\cite{lowe2017multiagent} allow for effective learning in such multi-agent settings thanks to variance reduction techniques.
+It has been shown that multi-agent environments can lead to the emergence of communication~\cite{foerster2016learning, sukhbaatar2016learning, lazaridou2016multi, mordatch2017emergence}---as the emergence of communication enables the agents to more effectively optimize their rewards.
+
+Multi-agent learning has also been a powerful tool to aid exploration for single-agent RL.
+Having agents compete leads to a natural curriculum, where initially the environment is easier and as the agents learn the environment becomes gradually more difficult~\cite{sukhbaatar2017intrinsic,florensa2018automatic,racaniere2019automated,openai2021asymmetric,dennis2020emergent}.
+
+
+PI Abbeel is one of the leading researchers in Reinforcement Learning, having pioneered several of the main breakthroughs, including the first stable on-policy Deep RL algorithm Trust Region Policy Optimization (TRPO) \cite{schulman2015trust}, the current SOTA off-policy actor critic algorithm Soft-Actor Critic (SAC) \cite{haarnoja2018soft}, efficient multi-agent actor-critic~\cite{lowe2017multiagent}, emerging communication~\cite{mordatch2017emergence}, representation learning in RL (CURL and RAD) \cite{misha20curl,RAD}, unsupervised RL algorithms and benchmark \cite{URLB}, RL from human preferences algorithms (PEBBLE) \cite{pebble} and benchmark (B-PREF) \cite{lee2021bpref}.
+Each of these contributions was accompanied by open-source releases, and have seen significant pick-up by the community.
+The Abbeel lab also released the first open-source Deep RL library rllab \cite{duan2016benchmarking}.
+This library directly resulted in the OpenAI Gym interface \cite{openaigym} which is still the prevalent environment interface today.
+
+
+% E. References Cited
+\newpage
+\renewcommand\refname{References Cited}
+\bibliography{gao,Abbeel,reference}
+% I prefer to use the IEEE bibliography style.
+% That's  NOT required by the NSF guidelines.
+% Feel Free to use whatever style you prefer
+\bibliographystyle{IEEEtran}
+
+\end{document}
