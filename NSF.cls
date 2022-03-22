@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{NSF}
-\LoadClass[11pt, letterpaper, timesnewroman, onecolumn]{article}
+\LoadClass[11pt, letterpaper, onecolumn]{article}
+%\LoadClass[11pt, letterpaper, timesnewroman, onecolumn]{article}
 
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage[pdftex,colorlinks,linkcolor=black,citecolor=black,urlcolor=black,filecolor=black]{hyperref}

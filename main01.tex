@@ -29,17 +29,17 @@
 A domain task may involve multiple agents, either within or across organizational boundaries (e.g.,when detecting ``cyber-pandemics”).
 We propose to develop a multi-agent collaboration framework,enabled by research in the following aspects.
 \begin{enumerate}
-\item Formal modeling of multi-agent networks: 
+\item Formal modeling of multi-agent networks:
 We will develop new concepts and models to assess the aggregate intelligence and capability of a network of agents performing a domain task.
 The models will capture both per-agent characteristics (e.g., knowledge and capability) as well as inter-agent relationships, such as trust and degree of cooperation.
 New theories will then be developed to quantify the network-wide intelligence and capability, based on derived properties such as scale, agreement/polarization~\cite{wang22coevolution}, and contagion (e.g., of misinformation) status.
 
-\item 
-Distributed learning and reasoning: 
+\item
+Distributed learning and reasoning:
 We will study the effectiveness of multi-agent learning and reasoning under a variety of factors, such as the type/amountof knowledge shared, adversarial disturbances~\cite{SilvestreRosaHespanhaSilvestreJun14}, and choice of reward functions and action quality assessment methods~\cite{radha_arel}.
 \textcolor{red}{xxx- Need contents from Radha on this topic...}
 
-\item 
+\item
 Multi-agent network as moving target:
 To mitigate adversarial disturbances, we will turn a multi-agent network into an intelligent moving target, by dynamically changing its organization/configuration, driven by domain knowledge and real-time situation-awareness, to avoid sophisticated adversarial analysis, evasion, and influence.
 \textcolor{red}{xxx- Need more contents on this topic...}
@@ -91,7 +91,22 @@ In summary this theory will provide a rigorous foundation for quantifying the co
 
 \noindent \textbf{2. Distributed learning and reasoning}
 
-\textcolor{red}{xxx- Need contents from Radha on this topic...}
+We will study the effectiveness of multi-agent learning and reasoning under a variety of factors, such as the type/amount of knowledge shared, adversarial disturbances, and choice of reward functions and action quality assessment methods.
+
+Our team (Poovendran) has developed solutions to mitigate the impact of sparse rewards in reinforcement learning. We designed algorithms to improve credit assignment- i.e., quantifying how good an action taken by the agent is- inspired by physical laws like conservation of energy (when information about the environment was available) ~\cite{xiao2022shaping, xiao2019potential}, using feedback from human operators (when rewards were delayed and difficult to interpret) ~\cite{xiao2020fresh} and self-attention (when rewards were episodic in unknown environments) ~\cite{xiao2022agent}.  We will translate insights gleaned from this research to reasoning about interactions among multiple heterogeneous agents.
+
+\noindent {\bf Redistribution of Sparse Rewards}:
+In many cyber systems, the effects of the actions of an adversary become evident to a user or system administrator only after the adversary has spent a long duration of time in the system~\cite{brogi2016terminaptor, ahmad2019strategically, alshamrani2019survey, huang2019adaptive}. An example is an advanced persistent threat (APT), where an adversary is embedded within the host system over long timeframes, with an objective to exfiltrate sensitive information, or damage critical infrastructure. Since an APT operates stealthily, rewards or penalties are revealed only at an advanced stage of the attack process~\cite{zhu2018multi, moothedath2020game, sahabandu2020quickest}. We will develop solutions to effectively redistribute the reward over the duration of the system-adversary interaction so that the system will be able to respond faster and more efficiently to mitigate the impact of the adversary. When there is more than one adversary, we will design methods to assess the relative contributions of each adversary to a common global reward. Such an assessment will contribute to the design of scheduling protocols to determine the priority with which each adversarial threat must be examined. We will investigate adversaries with different scopes- ranging from identical (fully homogeneous) to distinct (fully heterogeneous)- and design efficient redistribution algorithms when rewards are delayed.
+
+\noindent {\bf Distracting and Deceptive Rewards}:
+Current reinforcement learning paradigms presume that rewards received by an agent have high fidelity. Shortcomings in the specification of a reward have typically been addressed through `reward hacking’ mechanisms that resort to optimizing a proxy reward that is more easily measured~\cite{talvitie2018learning, pan2021effects}. However, misspecification of rewards has not been examined from the perspective of being carried out by an adversary. An intelligent, AI-enabled adversary might have an ability to modify the reward function, which will distract the system from learning behaviors to accomplish a specified goal. We will design methods to effectively identify distracting or deceptive rewards, and develop principled solutions to minimize the impact of deceptive rewards. Our solutions will use insights from distributed consensus to determine the fraction of agents that are contributing to a distracting reward and establish bounds on the maximum number of distracting rewards that can be handled, and game theory to learn best-response behaviors for the system despite the presence of such rewards.
+
+\noindent {\bf Leveraging Reward Function Structure}:
+When information about the environment is available, potential functions have been used to shape the rewards provided by the environment in order to accelerate the learning process~\cite{ng1999policy, devlin2011empirical, devlin2014potential, harutyunyan2015expressing}. However, using such structured rewards when domain knowledge is not available remains a challenge. Initial research in this direction has examined the use of graph neural networks~\cite{klissarov2020reward} and hindsight~\cite{mesnard2021counterfactual}. We will develop generalized hierarchical solutions that will first learn an underlying structure of a reward function, and then learn policies that will maximize a reward function consistent with the learned structure. Once a reward structure has been learned, an interesting question is whether the structure will help identifying adversarial interactions. Such interactions will likely contribute to modifying rewards in a manner that will violate the structural properties learned. We will design algorithms that will use structural to identify and reduce the impact of adversarial interactions.
+
+Selecting a policy that maximizes a reward function is computationally challenging when the action space is high-dimensional and/or combinatorial in nature. We will investigate and develop algorithms that exploit structure in order to compute optimal policies as well as accelerate the learning process. One structure that we have exploited in our prior work is submodularity, which is a diminishing-returns property of discrete functions. In~\cite{sahabandu2021scalable}, we proved that near-optimal policies can be computed in polynomial time for Markov decision processes that possess an \emph{approximate transition independence} property and have submodular rewards. This preliminary approach, however, assumed that the transition matrix of the MDP was known a priori, leaving the generalization to multi-agent RL scenarios as a problem for future work. In cases where the reward function is not submodular, we will explore properties such as curvature~\cite{sviridenko2017optimal} and weak submodularity~\cite{liu2018controlled, liu2018minimal} to construct scalable algorithms with application-dependent optimality bounds.
+
+
 
 
 \noindent \textbf{3. Multi-agent network as moving target}
@@ -135,7 +150,7 @@ This library directly resulted in the OpenAI Gym interface \cite{openaigym} whic
 % E. References Cited
 \newpage
 \renewcommand\refname{References Cited}
-\bibliography{gao,Abbeel,reference}
+\bibliography{gao,Abbeel,Distributed-learning,reference}
 % I prefer to use the IEEE bibliography style.
 % That's  NOT required by the NSF guidelines.
 % Feel Free to use whatever style you prefer
